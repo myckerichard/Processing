@@ -1,0 +1,55 @@
+//Processing
+//In.Mídias
+
+int maxImages = 12;
+int imageIndex = 0;
+int pointillize = 16;
+
+PImage[] images = new PImage[maxImages];
+
+void setup() {
+  size(800,600);
+  for (int i = 0; i < images.length; i ++ ) {
+    images[i] = loadImage( i + ".jpg" ); 
+  }
+}
+
+void draw() {
+  text("Hello Folks!",10,10);
+  text("Pressione 'a' para mudar a opacidade da imagem!",10,20);
+  text("Pressione 's' para ver em tom azul!",10,30);
+  text("Pressione 'd' para ver mais escuro!",10,40);
+  text("Clique e arraste para desenhar!",10,50);
+  text("Pressione 'w' para ver com as cores originais da imagem!",10,60);
+  stroke(255);
+  if (mousePressed == true) {
+    line(mouseX, mouseY, pmouseX, pmouseY);
+  }
+}
+
+void keyPressed(){
+    if(key == 'a'){
+    imageIndex = int(random(images.length));
+    image(images[imageIndex],0,0);
+    tint(255,127);
+  }
+  
+  if(key == 's'){
+    imageIndex = int(random(images.length));
+    image(images[imageIndex],0,0);
+    tint(0,200,255);
+  }
+  
+  if(key == 'd'){
+    imageIndex = int(random(images.length));
+    image(images[imageIndex],0,0);
+    tint(100);    
+  }
+  
+  if(key == 'w'){
+    imageIndex = int(random(images.length));
+    image(images[imageIndex],0,0);
+    tint(255);
+  }
+
+}
